@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>DenoMX | Home</title>
+
+    <link href="https://rlsrv.denomx.de/css/css-style.min.css" rel="stylesheet">
+        <script async src="https://arc.io/widget.min.js#yabZ6dFU"></script>
+
+    <link rel="shortcut icon" href="https://rlsrv.denomx.de/favicons/favicons-90af5a8c0a0814dfadf7d1ea7f665e5a6369d17d.png">
+    
+    <!-- CUSTOM -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+    <script src="https://rlsrv.denomx.de/js/686b3e6ff1.js" crossorigin="anonymous"></script>
+    <!-- config -->
+    <script>
+        const server_ip = "play.denomx.de";
+        const discord_invite_link = "https://discord.gg/XvYkWJhJfW";
+    </script>
+    <!-- config -->
+    <!-- end CUSTOM -->
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        
+        _gaq.push(['_setAccount', 'UA-36735942-3']);
+        _gaq.push(['_trackPageview']);
+        
+                
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+      <style>/****** VARIABLES ******/ 
+  --color-dark: #201d3b;
+  --color-primary: #fa4454;
+  --color-secondary: #7500eb;
+  --color-danger: #de2f28;
+  --color-success: #12cc37;
+  --color-light: #ffffff;
+  --font-main: "Montserrat", sans-serif;
+  --font-size: 16px;
+  --font-auto-resize: calc(var(--font-size) * 1.325 + 0.9vw);
+  --font-weight-text: 500;
+  --font-weight-title: 800;
+  --border-radius: 5px;
+  --border-width: 2px;
+  --border-black: var(--border-width) solid rgba(0, 0, 0, 0.25);
+  --border-light: var(--border-width) solid rgba(255, 255, 255, 0.05);
+  --border-success: var(--border-width) solid var(--color-success);
+  --border-danger: var(--border-width) solid var(--color-danger);
+  --border-primary: var(--border-width) solid var(--color-primary);
+}
+
+/****** DOCUMENT ******/
+html {
+  font-size: 100%;
+  font-weight: var(--font-weight-text);
+}
+body {
+  margin-top: 0;
+  background: var(--color-black);
+  font-size: var(--font-size);
+  font-family: var(--font-main);
+  color: var(--color-light);
+  overflow-x: hidden;
+  counter-reset: checkout-labels;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.2s;
+}
+p,
+h1,
+h2,
+a {
+  margin: 0;
+  line-height: 1.5em;
+}
+p {
+  margin-bottom: 1rem;
+}
+a:hover,
+a:focus,
+a:active,
+a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  outline: none;
+  outline-offset: 0;
+}
+:focus {
+  outline: none;
+}
+input {
+  border: var(--border-light);
+}
+label {
+  font-weight: var(--font-weight-text);
+}
+input[type="checkbox"], input[type="radio"] {
+  position: relative;
+  margin-right: .75rem;
+  visibility: hidden;
+}
+input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border: var(--border-primary);
+  background: var(--color-dark);
+  border-radius: var(--border-radius);
+  visibility: visible;
+}
+input[type="checkbox"]:checked::after {
+  position: absolute;
+  display: block;
+  top: .3rem;
+  left: .3rem;
+  content: "";
+  width: .5rem;
+  height: .3rem;
+  border-left: 2px solid var(--color-black);
+  border-bottom: 2px solid var(--color-black);
+  transform: rotate(-45deg);
+  visibility: visible;
+}
+input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
+  background: var(--color-primary);
+  border: var(--border-black);
+}
+input[type="radio"]::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border: var(--border-primary);
+  background: var(--color-dark);
+  border-radius: 50%;
+  visibility: visible;
+}
+
+/****** BOOTSTRAP ******/
+/* Buttons */
+.btn {
+  border-radius: var(--border-radius);
+  outline: none;
+  padding: 0.5em 1.25em;
+  text-transform: uppercase;
+}
+.btn[disabled] {
+  opacity: 1;
+}
+.btn:hover,
+.btn:focus,
+.btn {
+  color: inherit;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn:active,
+.btn.active {
+  outline: none;
+  box-shadow: none;
+}
+.btn-default,
+.btn-primary,
+.btn-info,
+.btn-success,
+.btn-danger,
+.btn-lg,
+.btn-group-lg > .btn,
+.btn-sm,
+.btn-group-sm > .btn {
+  font-weight: var(--font-weight-title);
+  font-size: 1rem;
+}
+.btn-default,
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-info,
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-success,
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-gift,
+.btn-gift:hover,
+.btn-gift:focus,
+.btn-gift:active {
+  background: var(--color-primary);
+  color: var(--color-black);
+  border: var(--border-black);
+  font-size: 1rem;
+}
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background: var(--color-danger);
+  color: var(--color-light);
+  border: var(--border-black);
+}
+.btn-default:hover,
+.btn-primary:hover,
+.btn-info:hover,
+.btn-success:hover,
+.btn-gift:hover,
+.btn-danger:hover {
+  transform: translate(0, -2px);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Text */
+.text-danger {
+  color: var(--color-danger);
+}
+.text-success {
+  color: var(--color-success);
+}
+
+/* Forms */
+.form-control,
+.checkout .packages table tbody .quantity input {
+  height: auto;
+  padding: 0.5em 0.75em;
+  font-size: 1rem;
+  color: var(--color-light);
+  box-shadow: none;
+  border-radius: var(--border-radius);
+  background: transparent;
+  border: var(--border-light);
+  color: var(--color-light);
+}
+.form-control:focus {
+  border: var(--border-light);
+}
+.form-control::placeholder,
+.checkout .packages table tbody .quantity input::placeholder {
+  color: var(--color-light);
+  opacity: 0.75;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background: var(--color-black);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+} 
+
+/* Dropdown */
+.dropdown-menu {
+  background: var(--color-dark);
+  border: var(--border-light);
+  border-radius: var(--border-radius);
+  padding: 1em;
+}
+.dropdown-menu > li > a {
+  color: var(--color-light);
+  padding: 0.5em 1em;
+  font-weight: var(--font-weight-title);
+}
+.dropdown-menu > li > a:hover {
+  background: none;
+  color: var(--color-light);
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: var(--color-black);
+  background: var(--color-primary);
+  border-radius: calc(var(--border-radius) / 1.5);
+}
+
+/* Modal */
+.modal-content {
+  background: var(--color-dark);
+  border: var(--border-light);
+  border-radius: var(--border-radius);
+}
+.modal-header,
+.modal-footer {
+  padding: 2rem;
+  border: 0;
+  vertical-align: center;
+}
+.modal-header {
+  padding-bottom: 0;
+}
+.modal-footer {
+  position: relative;
+  z-index: 1;
+  background: var(--color-black);
+}
+.modal-footer p {
+  text-align: left;
+  font-size: 1.5rem;
+}
+.modal-body {
+  padding: 2rem;
+}
+.modal-header h4.modal-title {
+  padding: 0.5em 1.25em;
+  margin-left: -3rem;
+  display: inline-block;
+  border-radius: var(--border-radius);
+  background: var(--color-secondary);
+  border: var(--border-black);
+  font-size: var(--font-size);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-title);
+}
+.close {
+  color: var(--color-danger);
+  font-size: 2rem;
+  text-shadow: none;
+  opacity: 1;
+  font-weight: 700;
+}
+.close:hover,
+.close:focus {
+  color: var(--color-danger);
+  opacity: 0.8;
+}
+
+/* Labels */
+.label-success {
+  background: var(--color-success);
+}
+
+/****** HEADER ******/
+.header {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  grid-gap: 1rem;
+}
+.header:before,
+.header:after {
+  content: none;
+}
+/* Hero Image */
+.gdp-hero-image {
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.35;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+.gdp-hero-image img {
+  position: relative;
+  top: -75%;
+  width: 100%;
+}
+/* Logo */
+.header .logo img {
+  height: auto;
+  max-height: 80px;
+}
+/* Discord */
+.gdp-discord {
+  display: inline-block;
+  color: var(--color-light);
+  padding: 0.75rem 1rem;
+  background: var(--color-secondary);
+  text-align: left;
+  border-radius: var(--border-radius);
+  border: var(--border-black);
+}
+.gdp-discord:hover,
+.gdp-discord:focus,
+.gdp-discord:active {
+  color: var(--color-light);
+}
+.gdp-discord:hover {
+  transform: translate(0, -2px);
+  box-shadow: 0 4px 0 0 var(--color-black);
+  -webkit-box-shadow: 0 4px 0 0 var(--color-black);
+}
+.gdp-discord p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.gdp-discord h2 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-title);
+  display: inline-block;
+}
+.gdp-discord i {
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+/* Server IP */
+.gdp-serverip {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.gdp-serverip p {
+  margin-bottom: 0;
+}
+.gdp-serverip:hover a {
+  padding-right: 0.5em;
+}
+.gdp-serverip a {
+  font-size: 2em;
+  font-weight: var(--font-weight-title);
+  color: white;
+  text-transform: uppercase;
+}
+.gdp-serverip .gdp-tooltip {
+  position: absolute;
+  right: 0;
+  top: calc(50% - 0.5em);
+  background: var(--color-primary);
+  color: var(--color-black);
+  font-weight: var(--font-weight-title);
+  padding: 0.5em;
+  font-size: 1em;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
+  border: var(--border-black);
+}
+
+/****** NAVBAR ******/
+.navbar {
+  border-radius: var(--border-radius);
+  margin-bottom: var(--font-size);
+}
+.navbar-default {
+  border: var(--border-light);
+  background: var(--color-dark);
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: var(--color-light);
+  font-weight: var(--font-weight-title);
+  text-decoration: none;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: var(--color-primary);
+  position: relative;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: var(--color-light);
+  background: none;
+}
+.navbar-default .navbar-toggle {
+  color: var(--color-black);
+  background: var(--color-primary);
+  border: var(--border-black);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-title);
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background: var(--color-primary);
+}
+.navbar-collapse {
+  box-shadow: none;
+}
+.navbar-collapse .navbar-nav > .active > a::after {
+  content: none;
+}
+.navbar .navbar-brand {
+  display: none !important;
+}
+.nav > li > a {
+  padding: 0;
+  margin: 2.25rem 1.5rem;
+}
+
+/****** SHOPPING DETAILS ******/
+.gdp-shopping-details {
+  background: var(--color-dark);
+  border: var(--border-light);
+  line-height: 2em;
+  position: relative;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+.gdp-shopping-details .buttons .toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gdp-shopping-details .buttons .toolbar div {
+  display: inline-block;
+}
+.gdp-shopping-details .buttons .toolbar img {
+  border-radius: var(--border-radius);
+  margin-right: 8px;
+}
+.logout a {
+  font-weight: var(--font-weight-title);
+  font-size: 1em;
+}
+.logout .btn {
+  padding: .75rem .75rem;
+}
+.currency {
+  position: relative;
+}
+.currency .btn {
+  background: none;
+  font-weight: var(--font-weight-title);
+  text-transform: uppercase;
+}
+.gdp-basket-cart {
+    position: relative;
+    margin-right: .5rem;
+}
+.gdp-basket-cart i {
+    font-size: 1.2rem;
+}
+.gdp-basket-cart .gdp-basket-cart-amount {
+    position: absolute;
+    right: -.5rem;
+    top: -.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-danger);
+    color: var(--color-light);
+    text-align: center;
+    font-size: .7rem;
+    border-radius: 50%;
+}
+.basket .btn {
+  position: relative;
+  padding: 1em;
+  background: var(--color-primary);
+  color: var(--color-black);
+  border: var(--border-black);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-weight: var(--font-weight-title);
+  text-transform: uppercase;
+  z-index: 1;
+  font-size: 1rem;
+}
+.basket .btn:after {
+  content: "";
+  position: absolute;
+  width: calc(100% + var(--border-width) * 4);
+  height: calc(100% + var(--border-width) * 4);
+  right: calc(var(--border-width) * -2);
+  top: calc(var(--border-width) * -2);
+  background: var(--color-primary);
+  border: var(--border-black);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  z-index: -1;
+}
+.basket .dropdown-menu {
+  padding: 2rem;
+  min-width: 200%;
+  font-size: 1rem;
+}
+.basket .dropdown-menu .btn {
+  border-radius: var(--border-radius);
+  padding: 0.75em 1.5em;
+}
+.basket .dropdown-menu .btn:after {
+  content: none;
+}
+.basket .dropdown-menu .item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) auto;
+  justify-content: space-between;
+  grid-gap: 1rem;
+  align-items: center;
+}
+.basket .dropdown-menu .item .name {
+  font-weight: var(--font-weight-title);
+}
+.basket .dropdown-menu .item .price,
+.basket .dropdown-menu .item .remove {
+  text-align: right;
+  justify-self: end;
+}
+.basket .dropdown-menu .item .remove a {
+  color: var(--color-danger);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.basket .dropdown-menu .checkout {
+  min-width: 200px;
+  margin-top: 1rem;
+}
+.gdp-shopping-details .basket .dropdown-menu .total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.gdp-shopping-details .basket .dropdown-menu .button {
+  display: block;
+}
+.gdp-shopping-details .basket .dropdown-menu .button a {
+  width: 100%;
+}
+.gdp-shopping-details .basket .dropdown-menu hr {
+  border: var(--border-light);
+  border-width: 1px;
+}
+
+/****** PANELS ******/
+.panel {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 1rem;
+}
+.panel-default {
+  border-radius: var(--border-radius);
+  border: var(--border-light);
+  background: var(--color-dark);
+  padding: 1rem;
+}
+.panel .panel-heading {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-title);
+  color: var(--color-light);
+  padding: 1rem;
+  padding-bottom: 0;
+}
+/* Custom Transparent Panel */
+.panel-default.gdp-panel-transparent {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.panel-default.gdp-panel-transparent .panel-heading *,
+.panel-default.gdp-panel-transparent .panel-body h1 {
+  color: var(--color-primary);
+  text-transform: initial;
+  font-size: 2rem;
+  font-weight: var(--font-weight-title);
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.panel-default.gdp-panel-transparent .panel-heading *:after,
+.panel-default.gdp-panel-transparent .panel-body h1:after {
+  content: "";
+  width: 3rem;
+  height: var(--border-width);
+  border-radius: var(--border-radius);
+  background: var(--color-light);
+  opacity: 0.25;
+  position: absolute;
+  bottom: calc(-0.25rem + var(--border-width) * -1);
+  left: 0;
+}
+.panel-default.gdp-panel-transparent p,
+.panel-default.gdp-panel-transparent .panel-heading p {
+  font-size: 1rem;
+  color: var(--color-light);
+  font-weight: var(--font-weight-text);
+  text-transform: initial;
+}
+.panel-default.gdp-panel-transparent .panel-body h2,
+.panel-default.gdp-panel-transparent .panel-body h3 {
+  font-weight: var(--font-weight-title);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+.panel-default.gdp-panel-transparent .panel-body {
+    padding: 1rem;
+}
+
+/****** CATEGORIES ******/
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background: var(--color-dark);
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border: none;
+}
+
+/****** PACKAGES ******/
+.gdp-modal-footer-grid {
+  display: grid;
+  align-items: center;
+}
+.btn-gift {
+  margin: 0;
+}
+.category .packages-row {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 1rem;
+  margin: 1rem -1rem;
+}
+.category .packages-row .gdp-row-package {
+  border-radius: var(--border-radius);
+  background: var(--color-dark);
+  border: var(--border-light);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.category .packages-row .gdp-row-package .name {
+  font-weight: var(--font-weight-title);
+}
+.category .packages-row .gdp-row-package .price {
+  margin-right: 1rem;
+}
+.category .packages-row .gdp-row-package .price .discount {
+  color: var(--color-danger);
+  text-decoration: line-through;
+}
+.category .packages-row .gdp-row-package .gdp-button-price {
+  display: flex;
+  align-items: center;
+}
+.category .packages-image {
+  display: grid;
+  grid-gap: 1rem;
+}
+.category .packages-image .package {
+  border-radius: var(--border-radius);
+  border: var(--border-light);
+  padding: 1rem;
+  background: var(--color-dark);
+  float: none;
+  width: auto;
+  margin: 0;
+  position: relative;
+}
+.category .packages-image .package:before,
+.category .packages-image .package:after,
+.category .packages-image:before,
+.category .packages-image:after {
+  content: none;
+}
+.category .packages-image .package .info {
+  max-width: 100%;
+  margin: 0;
+}
+.category .packages-image .package .info .button {
+  float: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+.category .packages-image .package .info .image {
+  margin: -1rem;
+  margin-bottom: 0;
+  background: var(--color-black);
+  padding: 1rem;
+  padding-bottom: 2rem;
+  height: 176px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.category .packages-image .package .info .image img {
+  max-width: 62.5%;
+}
+.category .packages-image .package .info .text {
+  height: auto;
+  width: 100%;
+  float: none;
+  padding: 0;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: -1rem;
+}
+.category .packages-image .package .info .text .name {
+  font-weight: var(--font-weight-title);
+  text-align: center;
+  display: inline-block;
+  text-transform: uppercase;
+  background: var(--color-secondary);
+  border: var(--border-black);
+  border-radius: var(--border-radius);
+  padding: 0.25em 0.75em;
+  margin-bottom: 1rem;
+}
+.category .packages-image .package .info .text .price {
+  font-size: 3rem;
+  font-weight: var(--font-weight-title);
+  text-align: center;
+  padding-top: 1rem;
+}
+.category .packages-image .package .info .text .price small {
+  font-size: 0.75rem;
+  vertical-align: top;
+  font-weight: var(--font-weight-title);
+  opacity: 0.5;
+  position: absolute;
+}
+.category .packages-image .package .info .text .price > div {
+  display: block;
+}
+.category .packages-image .package .info .text .price .discount {
+  margin-top: -1rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: var(--color-danger);
+}
+.category .packages-image .package .gdp-on-sale {
+  background: var(--color-danger);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-title);
+  text-transform: uppercase;
+  position: absolute;
+  border: var(--border-black);
+  top: calc(var(--border-width) * -1 - 0.5rem);
+  right: calc(var(--border-width) * -1 - 0.5rem);
+  padding: 0.25em 0.5em;
+  border-radius: var(--border-radius) var(--border-radius);
+}
+
+/****** MODULES ******/
+.gdp-centered-title-panel {
+  position: relative;
+  margin-top: 2rem;
+}
+.gdp-centered-title-panel:first-child { margin-top: 1rem; }
+.gdp-centered-title-panel .panel .panel-heading {
+  background: var(--color-primary);
+  border: var(--border-black);
+  border-radius: var(--border-radius);
+  padding: .25em .75em;
+  margin: 0 auto;
+  color: var(--color-black);
+  text-align: center;
+  position: absolute;
+  top: -1rem;
+}
+.gdp-centered-title-panel .panel .panel-heading p {
+  margin: 0;
+  padding: 0;
+}
+.gdp-centered-title-panel .panel .panel-heading i {
+  margin-right: .5rem;
+}
+.gdp-center-panel-heading {
+  display: flex;
+  justify-content: center;
+}
+
+/* Top Donator */
+.gdp-top-donator .top-donator {
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin: 0;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.gdp-top-donator .top-donator .avatar {
+  border-radius: var(--border-radius);
+  padding: 0;
+  height: 48px;
+  width: 48px;
+  margin: 0;
+  float: none;
+}
+.gdp-top-donator .top-donator .avatar img {
+  border-radius: var(--border-radius);
+}
+.gdp-top-donator .top-donator .info {
+  width: auto;
+  float: none;
+  text-align: left;
+  padding: 0;
+  padding-left: 1rem;
+}
+.gdp-top-donator .top-donator .info .ign {
+  margin: 0;
+  margin-bottom: .5rem;
+  font-weight: var(--font-weight-title);
+  font-size: 1.25rem;
+}
+.gdp-top-donator .top-donator .info .amount {
+  margin: 0;
+  font-size: 1rem;
+}
+.gdp-top-donator .panel {
+  background: var(--color-secondary);
+  border: var(--border-black);
+} 
+/* Donation Goal */
+.module .donation-goal p {
+  margin: 0;
+  margin-top: -2.3rem;
+  margin-bottom: 1rem;
+  font-weight: var(--font-weight-title);
+  color: var(--color-primary);
+  text-align: right;
+}
+.module .donation-goal .progress {
+  margin: 0;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  background: none;
+  border: var(--border-light);
+  height: 1rem;
+  position: relative;
+}
+.progress-bar {
+  background: var(--color-primary);
+  box-shadow: none;
+  background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 25%,
+      rgba(0,0,0,.1) 25%,
+      rgba(0,0,0,.1) 50%
+    );
+  animation: progress-slide 25s linear infinite;
+}
+@keyframes progress-slide {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100vw;
+  }
+}
+/* Server Status */
+.module .server-status h4 {
+  font-style: normal;
+  font-weight: var(--font-weight-title);
+  font-size: 1.25rem;
+}
+.module .server-status p {
+  font-style: normal;
+  font-size: 1rem;
+}
+.gdp-server-status {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+.gdp-server-status .panel {
+  margin-bottom: 0;
+}
+.gdp-server-status .panel-default {
+  background: none;
+}
+.gdp-server-status h4 {
+  font-weight: var(--font-weight-title);
+  text-transform: uppercase;
+}
+.gdp-server-status .panel-heading {
+  padding: 0;
+  text-align: right;
+}
+.gdp-server-status--online .panel-default {
+  border: var(--border-success);
+}
+.gdp-server-status--offline .panel-default {
+  border: var(--border-danger);
+}
+.gdp-background-image {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+}
+.gdp-background-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  /* -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0,0,0,.5)), to(rgba(0,0,0,0)));
+  mask-image: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0)); */
+  -webkit-mask-image: linear-gradient(135deg, transparent, rgba(0,0,0,.5), transparent);
+  -webkit-mask-size: 300% 100%;
+  mask-image: linear-gradient(135deg, transparent, rgba(0,0,0,.5), transparent);
+  mask-size: 300% 100%;
+  animation: server-status-animation 5s infinite alternate;
+}
+.gdp-server-status--offline .gdp-background-image {
+  background: var(--color-danger);
+}
+.gdp-server-status--online .gdp-background-image {
+  background: var(--color-success);
+}
+@keyframes server-status-animation {
+  100% {
+    -webkit-mask-position: right;
+    mask-position: right;
+  }
+}
+/* Featured Package */
+.gdp-featured-package .panel-default {
+  border: var(--border-primary);
+}
+.gdp-featured-package .panel-heading {
+  color: var(--color-primary);
+} 
+.gdp-featured-package .featured-package {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gdp-featured-package .featured-package img {
+  max-width: 100px;
+  max-height: 100px;
+}
+.module .featured-package .info {
+    margin: 0;
+    max-width: initial;
+}
+.module .featured-package .info .text, .module .featured-package .info .button {
+  float: none;
+  width: 100%;
+}
+.module .featured-package .info .text .name {
+  margin-left: 0;
+  font-size: 1rem;
+  overflow: initial;
+  text-overflow: initial;
+  white-space: initial;
+}
+.module .featured-package .info .text .name .price {
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-title);
+  font-size: 1rem;
+}
+.module .featured-package .info .text .price .discount {
+  color: var(--color-danger);
+}
+/* Recent Payments */
+.module .payments li {
+  display: flex;
+  align-items: center;
+  border: 0;
+  margin-bottom: .5rem;
+}
+.module .payments li .avatar {
+  border-radius: var(--border-radius);
+  width: 40px;
+  height: 40px;
+  float: none;
+}
+.module .payments li .avatar img {
+  border-radius: var(--border-radius);
+}
+.module .payments li .info {
+  float: none;
+  margin-left: .5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.module .payments li .info .ign {
+  margin-bottom: .25rem;
+}
+.module .payments li .info .extra {
+  font-size: .9rem;
+}
+
+/****** CHECKOUT ******/
+/* Fields */
+.gdp-checkout-page .page-header {
+  border: none;
+  padding: .5rem 0;
+  margin: 0 0 2rem 0;
+  position: relative;
+}
+.gdp-checkout-page .page-header h4 {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: var(--font-weight-title);
+  text-transform: uppercase;
+  margin: 0;
+}
+.gdp-checkout-page .gdp-checkout-header:before,
+.gdp-checkout-page .privacyStatement .page-header:before {
+  font-weight: var(--font-weight-title);
+  font-size: 1rem;
+  background: var(--color-secondary);
+  border: var(--border-black);
+  padding: 0.5em 1.25em;
+  border-radius: var(--border-radius);
+  margin-right: 1rem;
+}
+.gdp-checkout-header, .privacyStatement .page-header {
+  counter-increment: checkout-labels;
+}
+.gdp-checkout-page .gdp-checkout-header:before, .gdp-checkout-page .privacyStatement .page-header:before {
+  content: counter(checkout-labels);
+}
+.checkout .details .row .name,
+.checkout .details .row .email,
+.checkout .details .row .address1,
+.checkout .details .row .address2,
+.checkout .details .row .city,
+.checkout .details .row .zip,
+.checkout .details .row .country,
+.checkout .details .row .state {
+  padding: 0 0.5rem;
+}
+.gdp-checkout-page .row {
+  margin: 0 -0.5rem;
+}
+/* Card */
+.gdp-checkout-page .gdp-checkout-price .panel-default {
+  padding: 2rem;
+}
+.gdp-checkout-page .gdp-checkout-price .packages form {
+  display: grid;
+  grid-gap: 1.5rem;
+}
+.gdp-checkout-page .gdp-checkout-price .packages {
+  border-bottom: var(--border-light);
+  padding-bottom: 1rem;
+}
+.gdp-checkout-page .gdp-checkout-price .packages .gdp-checkout-package .btn,
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .btn-danger {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--color-light);
+  border-radius: 0;
+  font-weight: var(--font-weight-text);
+  font-size: .9rem;
+}
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .btn-danger {
+  color: var(--color-danger);
+}
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .btn-danger:hover,
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .btn-info:hover {
+  box-shadow: none;
+  transform: none;
+}
+.gdp-checkout-page .gdp-checkout-price .packages .gdp-checkout-package .name {
+  font-weight: var(--font-weight-title);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .name
+  .price {
+  color: var(--color-primary);
+  display: inline-block;
+}
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .quantity {
+  vertical-align: center;
+}
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .quantity
+  input[disabled] {
+  color: var(--color-light);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.gdp-checkout-page
+  .gdp-checkout-price
+  .packages
+  .gdp-checkout-package
+  .quantity
+  input {
+  color: var(--color-light);
+  border: var(--border-light);
+  background: none;
+  border-radius: var(--border-radius);
+  padding: 0.2em 0.5em;
+  max-width: 3em;
+}
+.gdp-checkout-page .gdp-checkout-price .coupons {
+  background: var(--color-primary);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: var(--border-black);
+  margin-bottom: 2rem;
+}
+.gdp-checkout-page .gdp-checkout-price input.form-control {
+  border: var(--border-black);
+  color: var(--color-black);
+}
+.gdp-checkout-page .gdp-checkout-price input.form-control::placeholder {
+  color: var(--color-black);
+}
+.gdp-checkout-page .gdp-checkout-price .btn-primary {
+  background: var(--color-black);
+  color: var(--color-light);
+}
+.gdp-checkout-page .gdp-checkout-price .coupons .page-header {
+  margin-bottom: 1rem;
+  color: var(--color-black);
+}
+.gdp-checkout-page .gdp-checkout-total {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 2rem 0;
+}
+.gdp-checkout-page .gdp-checkout-total h2 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-title);
+}
+.gdp-checkout-page .gdp-checkout-total p {
+  text-align: right;
+  margin: 0;
+}
+.gdp-checkout-page .gdp-checkout-total span {
+  display: relative;
+}
+.gdp-checkout-page .gdp-checkout-total span a,
+.gdp-checkout-page .gdp-checkout-total span a:hover {
+  color: var(--color-danger);
+  text-align: right;
+  display: block;
+}
+.gdp-checkout-page .gdp-total {
+  background: var(--color-primary);
+  margin: -2rem;
+  margin-top: 0;
+  padding: 2rem;
+  background: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gdp-checkout-page .gdp-total h2 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-title);
+}
+.gdp-checkout-page .gdp-total p {
+  font-size: 2rem;
+  font-weight: var(--font-weight-title);
+  margin: 0;
+}
+.gdp-checkout-page .buttons a, .gdp-checkout-page .buttons .btn {
+  font-weight: var(--font-weight-text);
+}
+.gdp-checkout-page .radio label, 
+.gdp-checkout-page .checkbox label,
+.gdp-checkout-page .checkout .gateways .radio {
+  width: 100%;
+  height: auto;
+}
+.gdp-checkout-terms {
+  display: flex;
+  justify-content: space-between;
+}
+.gdp-checkout-terms div:first-of-type {
+  width: 100%;
+}
+.checkout .gateways {
+  margin: 2rem 0;
+}
+.checkout .gateways .radio img {
+  background: var(--color-light);
+  border-radius: var(--border-radius);
+  margin-right: .5rem;
+}
+
+/****** FOOTER ******/
+.footer {
+  border: 0;
+  background: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  margin: 0;
+  margin-top: 9.5rem;
+  padding: 2.5rem 0;
+}
+.footer .container {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
+}
+.footer .container::before,
+.footer .container::after {
+  content: none;
+}
+.footer .logo {
+  margin-top: -9.5rem;
+  text-align: center;
+}
+.footer .logo img {
+  max-height: 14rem;
+  height: auto;
+}
+.footer ul {
+  padding: 0;
+  text-align: right;
+}
+.footer ul li {
+  display: inline-block;
+  margin-left: 3.5rem;
+}
+.footer ul li:first-child {
+  margin-left: 0;
+}
+.footer p.gdp-credits {
+  font-weight: var(--font-weight-title);
+  margin: 0;
+}
+.footer .branding {
+  float: none !important;
+  display: block;
+  text-align: center;
+  opacity: 0.5;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.footer a,
+.footer a:hover,
+.footer a:active,
+.footer a:focus {
+  color: var(--color-light);
+}
+
+/****** PAYMENT GATEWAYS ******/
+.gdp-payment-gateways {
+  background: var(--color-dark);
+  border: var(--border-light);
+  border-radius: var(--border-radius);
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gdp-gateway-main {
+    font-weight: var(--font-weight-title);
+    text-transform: uppercase;
+}
+.gdp-gateway-sub {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0;
+  width: 100%;
+  grid-template-columns: repeat( auto-fit, 76px);
+  justify-content: flex-end;
+}
+/*.gdp-gateway-container {
+  background: var(--color-light);
+  border-radius: var(--border-radius);
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gdp-gateway-container img {
+  height: auto;
+  max-width: 80%;
+}*/
+
+@media (min-width: 768px) {
+  .header .logo {
+    float: none;
+    width: initial;
+  }
+  .navbar-default .navbar-nav > .active > a::after {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: var(--border-black);
+    position: absolute;
+    bottom: -1.5rem;
+    left: calc(50% - 0.5rem);
+    box-shadow: 0 0 10px var(--color-primary);
+    animation: active-nav-after 2s ease-in-out infinite alternate;
+  }
+  .navbar-default .navbar-nav > .active > a::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -1.5rem;
+    left: calc(50% - 0.5rem);
+    box-shadow: 0 -15px 20px var(--color-primary);
+    animation: active-nav-before 2s ease-in-out infinite alternate;
+  }
+  @keyframes active-nav-after {
+    0% {
+      box-shadow: 0 0 8px var(--color-primary);
+    }
+    100% {
+      box-shadow: 0 0 15px var(--color-primary);
+    }
+  }
+  @keyframes active-nav-before {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    } 
+  }
+  .gdp-modal-footer-grid {
+    grid-template-columns: repeat(2, auto);
+  }
+  .modal-footer p {
+    margin: 0;
+  }
+  .category .packages-image {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin: 0 auto;
+  }
+  .navbar-default .navbar-collapse {
+    border-top: var(--border-light);
+  }
+  .gdp-hero-image img {
+    top: 0;
+  }
+  .modal-footer,
+  .modal-header,
+  .modal-body {
+    padding: 1rem;
+  }
+  .modal-header h4.modal-title {
+    margin-left: -2rem;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: var(--color-light);
+  }
+  .gdp-payment-gateways {
+    display: block;
+  }
+  .gdp-gateway-main {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .gdp-gateway-sub {
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 992px) {
+  .category .packages-image .package {
+    float: none;
+    width: auto;
+  }
+  .gdp-checkout-page
+    .gdp-checkout-price
+    .packages
+    .gdp-checkout-package
+    .buttons,
+  .gdp-checkout-page .gdp-checkout-total span a {
+    opacity: 0;
+    margin-top: -1em;
+  }
+  .gdp-checkout-page
+    .gdp-checkout-price
+    .packages
+    .gdp-checkout-package:hover
+    .buttons,
+  .gdp-checkout-page .gdp-checkout-total span:hover a {
+    opacity: 1;
+    margin-top: 0.5em;
+  }
+}
+@media (max-width: 992px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+  }
+  .gdp-discord {
+    order: 3;
+  }
+  .gdp-discord p,
+  .gdp-discord h2 {
+    display: none;
+  }
+  .gdp-discord i {
+    margin: 0;
+  }
+  .gdp-serverip {
+    order: 2;
+    text-align: center;
+  }
+  .footer {
+    margin: 0;
+  }
+  .footer .container {
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+  .footer .logo {
+    display: none;
+  }
+  .footer ul {
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+  }
+  .footer ul li {
+      margin: 0;
+      padding: 1rem;
+  }
+  .footer .gdp-footer-left {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+  .header {
+    grid-template-columns: 100%;
+  }
+  .gdp-discord {
+    display: none;
+  }
+  .gdp-serverip:hover a {
+    padding: 0;
+  }
+  .gdp-serverip .gdp-tooltip {
+    right: 40%;
+  }
+  .category .packages-image .package .info .text .price,
+  .gdp-category-panel h2,
+  .gdp-serverip a,
+  .gdp-panel-transparent .panel-heading {
+    font-size: var(--font-auto-resize);
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+  .header .logo {
+    position: relative;
+    z-index: 99;
+    max-width: 250px;
+    max-height: 100px;
+    margin-bottom: -32px;
+    margin-left: -32px;
+  }
+  .header .logo img {
+    height: auto;
+    max-width: 100%;
+    max-height: 200px;
+  }
+  .navbar-nav {
+    float: right;
+  }
+  .category .packages-image {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gdp-checkout-page {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+  }
+</style>
+
+
+  </head>
+  <body>
+    <!-- CUSTOM -->
+    <div class="gdp-hero-image">
+        <img src="https://rlsrv.denomx.de/images/RmiLcZ2.jpg" alt="Hero image">
+    </div>
+    <!-- end CUSTOM -->
+
+    <div class="container">
+
+        <div class="header">
+        
+            <div class="logo">
+                                    <a href="/"><img src="https://rlsrv.denomx.de/images/logos-430932aa82a6328fcc4ae6161cb21107240c237f.png"></a>
+                            </div>
+            
+            <!-- CUSTOM -->
+            <a href="#" id="discord_invite_link" class="gdp-discord">
+                <div class="gdp-discord-container">
+                    <i class="fab fa-discord"></i><h2>COMMUNITY</h2>
+                </div>
+            </a>
+            
+            <button class="gdp-serverip" onclick="copyIp()">
+                <p>WE HAVE ALREADY LAUNCHED <span data-playercounter-ip="play.denomx.de" id="online_count">50+</span>&nbsp;SERVERS</p>
+                <a href="#" data-clipboard="play.denomx.de" id="server_ip">PLAY.DENOMX.DE</a>
+                <div class="gdp-tooltip" id="serverIPTooltip">DOMAIN COPIED PAST IT IN THE URL LINE </div>
+            </button>
+            <!-- end CUSTOM -->
+        </div>
+        
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              MENU
+            </button>
+            <a class="navbar-brand" href="/">DenoMX Network</a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                                                      <li class=""><a href="/login">My Servers</a></li>
+                                                                        
+                                                    <li class=""><a href="https://play.denomx.de">Game-Panel</a></li>
+                                                                  
+                                            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="gdp-shopping-details">
+            <div class="buttons">
+              <div class="toolbar">
+                <div class="logout">
+                     <a href="login" class="btn">Login</a>
+                                    </div>
+                                                                                   <div style="position: relative">
+                    <div class="currency">
+                      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        EUR <span class="fa fa-caret-down"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                                                                                    <li >
+                                  <a href="?currency=AUD">AUD</a>
+                                </li>
+                                                                                                                <li >
+                                  <a href="?currency=BRL">BRL</a>
+                                </li>
+                                                                                                                <li >
+                                  <a href="?currency=CAD">CAD</a>
+                                </li>
+                                                                                                                                                                    <li >
+                                  <a href="?currency=DKK">DKK</a>
+                                </li>
+                                                                                                                <li class="active">
+                                  <a href="?currency=EUR">EUR</a>
+                                </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        <li >
+                                  <a href="?currency=NOK">NOK</a>
+                                </li>
+                                                                                                                <li >
+                                  <a href="?currency=NZD">NZD</a>
+                                </li>
+                                                                                                                                                                    <li >
+                                  <a href="?currency=PLN">PLN</a>
+                                </li>
+                                                                                                                <li >
+                                  <a href="?currency=GBP">GBP</a>
+                                </li>
+                                                                                                                                                                    <li >
+                                  <a href="?currency=SEK">SEK</a>
+                                </li>
+                                                                                                                                                                                                                                                                                                                                <li >
+                                  <a href="?currency=USD">USD</a>
+                                </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </ul>
+                    </div>        
+                    
+                    <div class="basket">
+                                                  <a href="#" class="btn" ><i class="icon-shopping-cart icon-white"></i> 
+                          <span class="gdp-basket-cart"><i class="fas fa-wallet"></i></span>INVOICE
+                          </a>
+                                            </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+      <div class="notification">
+          
+      </div>
+
+      	<div class="body">
+		<div class="content">
+			<div class="panel panel-default gdp-panel-transparent">
+			    <div class="panel-heading">
+				  <h2>Welcome</h2>
+            </div>
+				<div class="panel-body">
+			  		<p><strong>Welcome to the official DenoMX Free Hosting! &nbsp;<i class="fas fa-certificate"></i></strong> Nice to see you unlock your new level click "LOGIN" and start Have fun.&nbsp; Important! You need a Discord account to log in.</p><p><br></p><p><span style="background-color:transparent;font-size:18px;"><strong><u>SUPPORT</u></strong></span></p><p><span style="background-color:transparent;font-size:1rem;">Do you have any other questions besides hosting? You come on an error already for 20 minutes and it does not work? Then you can always contact our team in our <a href="https://discord.gg/XvYkWJhJfW" target="_blank" rel="noreferrer noopener">Discord Server</a>. All you have to do is to open a ticket in the support channel.</span></p><p><br></p><p><strong><span style="font-size:18px;"><u>REFUND POLICY</u></span></strong></p><p><span style="background-color:transparent;font-size:1rem;">All payments are final and&nbsp;<strong>not refundable</strong>. Attempting a chargeback or opening a PayPal dispute will result in permanent and irreversible removal from all of our services.</span></p><p><span style="background-color:transparent;font-size:1rem;">It could take up to <strong>1-15 minutes</strong> for your purchase to go through. At most times it's instantly added, but if it took longer than the expected time, contact our staff team via Discord.</span></p>
+			  		<div class="gdp-payment-gateways">
+			  		    <div class="gdp-gateway-main">
+			  		        Secure payment gateways
+			  		    </div>
+			  		    <div class="gdp-gateway-sub">
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://rlsrv.denomx.de/images/83cb47eda19dfa483d8c4417bd6d0565.png" alt="Visa">
+			  		        </div>
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://rlsrv.denomx.de/images/77ba64bb4445dfe90f8dd58f3e16d7d6.png" alt="Mastercard">
+			  		        </div>
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://rlsrv.denomx.de/images/e05c817b84e77701e76e658ed05e45d5.png" alt="Amex">
+			  		        </div>
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://rlsrv.denomx.de/images/2cd98151c82d43a35b4fd32b08a27609.png" alt="Apple Pay">
+			  		        </div>
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://rlsrv.denomx.de/images/dc8c33d88425874f7ddb765e5801d27b.png" alt="PayPal">
+			  		        </div>
+			  		        <!-- COMMENT TO DISABLE / UNCOMMENT TO ENABLE
+			  		        
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://i.gyazo.com/58ef0a2d1f0cf477db0b99103bc7b1d6.png" alt="Discover"/>
+			  		        </div>
+			  		        <div class="gdp-gateway-container">
+			  		            <img src="https://i.gyazo.com/6aac3f61a841165b12e34bc7a3801711.png" alt="Cash"/>
+			  		        </div>
+			  		        
+			  		        -->
+			  		    </div>
+			  		</div>
+				</div>
+			</div>
+		</div>
+		<div class="sidebar">
+			<div class="panel panel-default module box-container">
+    <div class="panel-heading">
+        <div class="header" style="margin-top:0px;margin-bottom:0px;">Utilization of our Free Hosting Node.</div>
+    </div>
+    <div class="panel-body content" style="width:auto;float:none;">
+        <div class="donation-goal" style="text-align:center;">
+                
+            <p>
+                
+            </p>        
+            <p>
+                
+    		        			    14% Used.
+    		     
+            </p>
+            <div class="progress  progress-striped   active ">
+                <div class="progress-bar bar" role="progressbar" style="width:14%;"></div>
+            </div>
+                    </div>
+    </div>
+</div>
+
+<div class="gdp-top-donator gdp-centered-title-panel">
+  <div class="panel panel-default module">
+      <div class="gdp-center-panel-heading">
+          <div class="panel-heading"><p><i class="fas fa-star"></i>Our feedback </p></div>
+      </div>
+      <div class="panel-body">
+                      <div class="top-donator">
+                <div class="avatar">
+                  <img src="https://rlsrv.denomx.de/images/player-_EICushWaffel" width="48">
+                </div>
+                <div class="info">
+                  <div class="ign">EICushWaffel</div>
+                  <div class="amount">
+                                                Nice Hosting, <p>
+                                            
+                                                best Hardware and Server.
+                                        </div>
+                </div>
+            </div>
+                </div>
+  </div>
+</div><div class="panel panel-default module">
+  <div class="panel-heading">And more Feedback <i class="far fa-smile-wink"></i></div>
+  <div class="panel-body">
+    <ul class="payments">
+                <li>
+            <div class="avatar">
+              <img src="https://rlsrv.denomx.de/images/ImKhaledmI-64" width="40">
+            </div>
+            ImKhaledmI<div class="info">
+              <div class="ign">
+                                </div>
+              <div class="extra">
+                                        Been working with DenoMX for over 2 weeks and I had no problems. My friends love the minecraft SMP I made!
+                                                                    </div>
+            </div>
+          </li>
+                <li>
+            <div class="avatar">
+              <img src="https://rlsrv.denomx.de/images/MangoKevin2654-64" width="40">
+            </div>
+            <div class="info">
+              <div class="ign">
+                  MangoKevin2654
+                                </div>
+              <div class="extra">
+                                        Really great support 
+                                                                    </div>
+            </div>
+          </li>
+                <li>
+            <div class="avatar">
+              <img src="https://rlsrv.denomx.de/images/_Ditisnietmilan0-64" width="40">
+            </div>
+            <div class="info">
+              <div class="ign">
+                  _Ditisnietmilan0
+                                </div>
+              <div class="extra">
+                                Server is perfect is not lags
+                                                                    </div>
+        
+</div>
+          </li>
+                
+          </li>
+          </ul>
+  </div>
+</div>
+		</div>
+	</div>
+
+          
+    </div>
+    
+    <!-- CUSTOM -->
+    <div class="footer">
+        <div class="container">
+            <div class="gdp-footer-left">
+                <p class="gdp-credits">&copy; RL-ServerNodes Network&trade; <script>document.write(new Date().getFullYear());</script></p>
+                <p class="gdp-affiliate">We are not affiliated with Mojang AB.</p>
+            </div>
+            <div class="logo">
+                                    <a href="/"><img src="https://rlsrv.denomx.de/images/logos-430932aa82a6328fcc4ae6161cb21107240c237f.png"></a>
+                            </div>
+            <div>
+                <ul>
+                    <li><a href="https://imprint.denomx.de/">Impressum</a></li>
+                    <li><a href="https://private.denomx.de/">Privacy Policy</a></li>
+                    <li><a href="https://tos.denomx.de/">Terms</a></li>
+             <a href="https://www.gogetssl.com" rel="nofollow" title="GoGetSSL Site Seal Logo"><div id="gogetssl-animated-seal" style="width:180px; height:58px;"></div></a> <script src="https://gogetssl-cdn.s3.eu-central-1.amazonaws.com/site-seals/gogetssl-seal.js"></script>   
+             </ul>
+            </div>
+        </div>
+                    <div class="branding"> 
+              <!-- Do not remove the Buycraft branding if you are not on the Ultimate Plan. Your account will be deleted. -->
+              Made with &#9825 in Sachsen Germany.
+            </div>
+            </div>
+    <!-- CUSTOM -->
+    
+    <div class="modal" id="popup-modal" tabindex="-1" role="dialog"></div>
+    
+        
+    <script src="https://rlsrv.denomx.de/js/1.11.0-jquery.min.js"></script>  
+    <script src="https://rlsrv.denomx.de/js/js-bootstrap.min.js"></script>
+    <script src="https://rlsrv.denomx.de/js/js-skin.min.js"></script>
+    <script src="https://rlsrv.denomx.de/js/js-site.js"></script>
+    <script>
+        jQuery(function(){
+            var countdowns = $(".countdown-to");
+            countdowns.each(function(){
+               setInterval(function(ele) {
+                   timeLeft = parseInt(ele.attr("data-countdown"));
+                   if (timeLeft == 0) {
+                       ele.html("Time Expired!");
+                   } else {
+                   timeLeft--;
+                   ele.attr("data-countdown", timeLeft);
+                  var days = Math.floor(timeLeft / (60 * 60 * 24));
+                  var hours = Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60));
+                  var minutes = Math.floor((timeLeft % (60 * 60)) / (60));
+                  var seconds = Math.floor((timeLeft % 60));
+                  ele.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s");
+                   }
+               }, 1000, jQuery(this));
+            });
+        });
+    </script>
+    <!-- CUSTOM -->
+    <script>
+        function copyIp() {
+            let ipElement = document.getElementById("server_ip");
+            let tooltipElement = document.getElementById("serverIPTooltip");
+            // Create new element
+            let el = document.createElement('textarea');
+            // Set value (string to be copied)
+            el.value = ipElement.dataset.clipboard;
+            // Set non-editable to avoid focus and move outside of view
+            el.setAttribute('readonly', '');
+            el.style = {position: 'absolute', left: '-9999px'};
+            document.body.appendChild(el);
+            // Select text inside element
+            el.select();
+            // Copy text to clipboard
+            document.execCommand('copy');
+            // Remove temporary element
+            document.body.removeChild(el);
+            
+            ipElement.style.opacity = 0;
+            tooltipElement.style.opacity = 1;
+            
+            setTimeout(() => {
+                ipElement.style.opacity = 1;
+                tooltipElement.style.opacity = 0;
+            }, 2000);
+        }
+    </script>
+    <script>
+        document.getElementById("server_ip").innerHTML = server_ip;
+        document.getElementById("online_count").setAttribute("data-playercounter-ip", server_ip); 
+        document.getElementById("discord_invite_link").setAttribute("href", discord_invite_link);
+    </script>
+    <script src="js/dist-mc-player-counter.min.js"></script>
+    <!-- end CUSTOM -->
+  <script>	
+    jQuery(".card-container").eq(0).remove();	
+</script>	
+<script type="text/javascript" src="js/js-discord.js"></script>
+<div id="waiting-overlay" style="display: none;">	
+    <i class="fa fa-cog fa-spin fa-3x"></i>	
+</div>
+</body>
+</html>
+  <body oncontextmenu="return false">
